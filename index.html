@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop - Cửa hàng thú cưng</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Pet Shop</div>
+            <div class="nav-items">
+                <a href="#" class="active">Trang chủ</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Danh mục <i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#" data-category="pets">Thú cưng</a>
+                        <a href="#" data-category="food">Đồ ăn</a>
+                        <a href="#" data-category="toys">Đồ chơi</a>
+                        <a href="#" data-category="accessories">Phụ kiện</a>
+                    </div>
+                </div>
+                <button class="add-product-btn" onclick="showAddProductModal()">
+                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                </button>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="products-container">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddProductModal()">&times;</span>
+            <h2>Thêm sản phẩm mới</h2>
+            <form id="addProductForm" onsubmit="handleAddProduct(event)">
+                <div class="form-group">
+                    <label for="productName">Tên sản phẩm:</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Giá:</label>
+                    <input type="number" id="productPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">URL hình ảnh:</label>
+                    <input type="url" id="productImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Danh mục:</label>
+                    <select id="productCategory" required>
+                        <option value="pets">Thú cưng</option>
+                        <option value="food">Đồ ăn</option>
+                        <option value="toys">Đồ chơi</option>
+                        <option value="accessories">Phụ kiện</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Thêm sản phẩm</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Giỏ hàng</h2>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total">
+                <h3>Tổng cộng: <span id="totalAmount">0</span> VNĐ</h3>
+                <button class="checkout-btn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Thông tin liên hệ</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận 1, TP.HCM</p>
+                <p><i class="fas fa-phone"></i> Hotline: 0123.456.789</p>
+                <p><i class="fas fa-envelope"></i> Email: petshop@example.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Giờ làm việc</h3>
+                <p>Thứ 2 - Thứ 6: 8:00 - 21:00</p>
+                <p>Thứ 7 - Chủ nhật: 9:00 - 20:00</p>
+            </div>
+            <div class="footer-section">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pet Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
